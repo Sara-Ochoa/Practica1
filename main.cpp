@@ -15,7 +15,7 @@ int main()
         cout<<endl;
         cout<<"Seleccione una opcion"<<endl;
         cout<<endl;
-        cout<<"1. Es vocal, consonante o ninguna de las 2"<<endl;
+        cout<<"1. Vocal, consonante o ninguna de las 2"<<endl;
         cout<<"2. Minima combinacion de billetes y monedas"<<endl;
         cout<<"3. Mes y dia validos"<<endl;
         cout<<"4. Dos horas y sumarlas"<<endl;
@@ -26,12 +26,12 @@ int main()
         cout<<"9. Suma de todos los digitos elevados asi mismos"<<endl;
         cout<<"10. El enesimo numero primo"<<endl;
         cout<<"11. Minimo comun multiplo entre 1 y el ingresado"<<endl;
-        cout<<"12. "<<endl;
-        cout<<"13. "<<endl;
-        cout<<"14. "<<endl;
-        cout<<"15. "<<endl;
-        cout<<"16. "<<endl;
-        cout<<"17.Problema diesisiete"<<endl;
+        cout<<"12. Maximo factor primo de un numero"<<endl;
+        cout<<"13. Suma de todos los primos menores que el número ingresado"<<endl;
+        cout<<"14. Numero palindromo mas grande"<<endl;
+        cout<<"15. Suma de los números en la diagonal de una espiral"<<endl;
+        cout<<"16. Serie de Collatz"<<endl;
+        cout<<"17. Numero triangular"<<endl;
         cout<<"0.Para salir"<<endl;
         cin>>opcion;
         switch (opcion)
@@ -52,52 +52,52 @@ int main()
                 cout<<caracter<< " No es una letra"<<endl;
             break;
         case 2:
-            cout<<"Ejecutando problema 2"<<endl;
+            cout<<"Ejecutando problema 2 ..."<<endl;
             break;
         case 3:
-            cout<<"Ejecutando problema 3"<<endl;
+            cout<<"Ejecutando problema 3 ..."<<endl;
             break;
         case 4:
-            cout<<"Ejecutando problema 4"<<endl;;
+            cout<<"Ejecutando problema 4 ..."<<endl;;
             break;
         case 5:
-            cout<<"Ejecutando problema 5"<<endl;;
+            cout<<"Ejecutando problema 5 ..."<<endl;;
             break;
         case 6:
-            cout<<"Ejecutando problema 6"<<endl;;
+            cout<<"Ejecutando problema 6 ..."<<endl;;
             break;
         case 7:
-            cout<<"Ejecutando problema 7"<<endl;;
+            cout<<"Ejecutando problema 7 ..."<<endl;;
             break;
         case 8:
-            cout<<"Ejecutando problema 8"<<endl;;
+            cout<<"Ejecutando problema 8 ..."<<endl;;
             break;
         case 9:
-            cout<<"Ejecutando problema 9"<<endl;;
+            cout<<"Ejecutando problema 9 ..."<<endl;;
             break;
         case 10:
-            cout<<"Ejecutando problema 10"<<endl;;
+            cout<<"Ejecutando problema 10 ..."<<endl;;
             break;
         case 11:
-            cout<<"Ejecutando problema 11"<<endl;;
+            cout<<"Ejecutando problema 11 ..."<<endl;;
             break;
         case 12:
-            cout<<"Ejecutando problema 12"<<endl;;
+            cout<<"Ejecutando problema 12 ..."<<endl;;
             break;
         case 13:
-            cout<<"Ejecutando problema 13"<<endl;;
+            cout<<"Ejecutando problema 13 ..."<<endl;;
             break;
         case 14:
-            cout<<"Ejecutando problema 14"<<endl;;
+            cout<<"Ejecutando problema 14 ..."<<endl;;
             break;
         case 15:
-            cout<<"Ejecutando problema 15"<<endl;;
+            cout<<"Ejecutando problema 15 ..."<<endl;;
             break;
         case 16:
-            cout<<"Ejecutando problema 16"<<endl;;
+            cout<<"Ejecutando problema 16 ..."<<endl;;
             break;
         case 17:
-            cout<<"Ejecutando problema 17"<<endl;;
+            cout<<"Ejecutando problema 17 ..."<<endl;;
             break;
         default:
             if(opcion!=0)
