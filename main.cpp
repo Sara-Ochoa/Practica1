@@ -5,7 +5,7 @@ using namespace std;
 void MenuPrincipal();
 bool EsVocal(char letra);
 void BilletesMonedas(int devuelta);
-//void MesDia(int mes, int dia);
+void SumaHoras(int horaInicio,int horaMas);
 
 int main()
 {
@@ -40,48 +40,17 @@ int main()
             BilletesMonedas(cantidadDevolver);
             break;
         case 3:
-            //string mes;
-            //int dia;
             cout<<"Ejecutando problema 3 ..."<<endl;
-            //cout<<"Ingrese el mes (en numeros): "<<endl;
-            //cin>>mes;
-            //cout<<"Ingrese el dia: "<<endl;
-            //cin>>dia;
-            //MesDia(mes, dia);
             break;
         case 4:
             int horaInicio;
             int horaMas;
-            int hora1;
-            int minutos1;
-            int minutos2;
-            int hora2;
-            int horaFin;
-            int minutosFin;
-
             cout<<"Ejecutando problema 4 ..."<<endl;;
             cout<<"Ingrese la primer hora: "<<endl;
             cin>>horaInicio;
             cout<<"Ingrese la hora a sumar: "<<endl;
             cin>>horaMas;
-
-            hora1 = horaInicio / 100;
-            minutos1 = horaInicio - (100*hora1);
-            hora2 = horaMas / 100;
-            minutos2 = horaMas - (100*hora2);
-            horaFin= hora1 + hora2;
-            minutosFin = minutos1 + minutos2;
-
-            if (minutosFin >=60){
-                minutosFin = minutosFin -60;
-                horaFin = horaFin +1;
-            }
-
-            if (horaFin > 24)
-                cout<<horaFin<<":"<<minutosFin<<" Es un tiempo invalido"<<endl;
-            else
-                cout<<"La hora es: "<<horaFin<<":"<<minutosFin<<endl;
-
+            SumaHoras(horaInicio, horaMas);
             break;
         case 5:
             cout<<"Ejecutando problema 5 ..."<<endl;;
@@ -151,7 +120,7 @@ void MenuPrincipal(){
     cout<<"12. Maximo factor primo de un numero"<<endl;
     cout<<"13. Suma de todos los primos menores que el número ingresado"<<endl;
             cout<<"14. Numero palindromo mas grande"<<endl;
-    cout<<"15. Suma de los números en la diagonal de una espiral"<<endl;
+    cout<<"15. Suma de los numeros en la diagonal de una espiral"<<endl;
             cout<<"16. Serie de Collatz"<<endl;
     cout<<"17. Numero triangular"<<endl;
     cout<<"0.Para salir"<<endl;
@@ -234,10 +203,32 @@ void BilletesMonedas(int devuelta){
     cout<<"Faltante: "<<devuelta<<endl;
 }
 
+void SumaHoras(int horaInicio,int horaMas){
+    int hora1;
+    int minutos1;
+    int minutos2;
+    int hora2;
+    int horaFin;
+    int minutosFin;
 
-//void MesDia(int mes, int dia){
-//}
+    hora1 = horaInicio / 100;
+    minutos1 = horaInicio - (100*hora1);
+    hora2 = horaMas / 100;
+    minutos2 = horaMas - (100*hora2);
+    horaFin= hora1 + hora2;
+    minutosFin = minutos1 + minutos2;
 
+    if (minutosFin >=60){
+        minutosFin = minutosFin -60;
+        horaFin = horaFin +1;
+    }
+
+    if (horaFin > 24)
+        cout<<horaFin<<":"<<minutosFin<<" Es un tiempo invalido"<<endl;
+    else
+        cout<<"La hora es: "<<horaFin<<":"<<minutosFin<<endl;
+
+}
 
 
 
