@@ -4,7 +4,8 @@ using namespace std;
 
 void MenuPrincipal();
 bool EsVocal(char letra);
-int BilletesMonedas(int devuelta);
+void BilletesMonedas(int devuelta);
+//void MesDia(int mes, int dia);
 
 int main()
 {
@@ -39,10 +40,48 @@ int main()
             BilletesMonedas(cantidadDevolver);
             break;
         case 3:
+            //string mes;
+            //int dia;
             cout<<"Ejecutando problema 3 ..."<<endl;
+            //cout<<"Ingrese el mes (en numeros): "<<endl;
+            //cin>>mes;
+            //cout<<"Ingrese el dia: "<<endl;
+            //cin>>dia;
+            //MesDia(mes, dia);
             break;
         case 4:
+            int horaInicio;
+            int horaMas;
+            int hora1;
+            int minutos1;
+            int minutos2;
+            int hora2;
+            int horaFin;
+            int minutosFin;
+
             cout<<"Ejecutando problema 4 ..."<<endl;;
+            cout<<"Ingrese la primer hora: "<<endl;
+            cin>>horaInicio;
+            cout<<"Ingrese la hora a sumar: "<<endl;
+            cin>>horaMas;
+
+            hora1 = horaInicio / 100;
+            minutos1 = horaInicio - (100*hora1);
+            hora2 = horaMas / 100;
+            minutos2 = horaMas - (100*hora2);
+            horaFin= hora1 + hora2;
+            minutosFin = minutos1 + minutos2;
+
+            if (minutosFin >=60){
+                minutosFin = minutosFin -60;
+                horaFin = horaFin +1;
+            }
+
+            if (horaFin > 24)
+                cout<<horaFin<<":"<<minutosFin<<" Es un tiempo invalido"<<endl;
+            else
+                cout<<"La hora es: "<<horaFin<<":"<<minutosFin<<endl;
+
             break;
         case 5:
             cout<<"Ejecutando problema 5 ..."<<endl;;
@@ -130,7 +169,7 @@ bool EsVocal(char letra){
     return false;
 }
 
-int BilletesMonedas(int devuelta){
+void BilletesMonedas(int devuelta){
     int billete50000;
     int billete20000;
     int billete10000;
@@ -193,6 +232,29 @@ int BilletesMonedas(int devuelta){
         cout<<"50: "<<moneda50<<endl;
     }
     cout<<"Faltante: "<<devuelta<<endl;
-
-    return 0;
 }
+
+
+//void MesDia(int mes, int dia){
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
