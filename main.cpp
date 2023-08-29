@@ -6,6 +6,7 @@ void MenuPrincipal();
 bool EsVocal(char letra);
 void BilletesMonedas(int devuelta);
 void SumaHoras(int horaInicio,int horaMas);
+void MesDia(int mes, int dia);
 
 int main()
 {
@@ -40,7 +41,14 @@ int main()
             BilletesMonedas(cantidadDevolver);
             break;
         case 3:
+            int mes;
+            int dia;
             cout<<"Ejecutando problema 3 ..."<<endl;
+            cout<<"Ingrese el mes (en numeros): "<<endl;
+            cin>>mes;
+            cout<<"Ingrese el dia: "<<endl;
+            cin>>dia;
+            MesDia(mes,dia);
             break;
         case 4:
             int horaInicio;
@@ -231,9 +239,41 @@ void SumaHoras(int horaInicio,int horaMas){
 }
 
 
+void MesDia(int mes, int dia){
+    //string meses31[]={"1","3","5","7","8", "10", "12"};
+    //string meses30[]={"4","6","9","11"};
 
-
-
+    if(mes==1 || mes==3 || mes==5 || mes==7 || mes==8 || mes==10 || mes==12){
+        if(dia>=1 && dia<=31){
+           cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+        }
+        else{
+           cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+        }
+    }
+    else if(mes==4 || mes==6 || mes==9 || mes==11){
+        if(dia>=1 && dia<=30){
+           cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+        }
+        else{
+           cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+        }
+    }
+    else if(mes==2){
+        if(dia>=1 && dia<=28){
+            cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+        }
+        else if(dia==29){
+            cout<<dia<<"/"<<mes<<" es valida en bisiesto"<<endl;
+        }
+        else{
+            cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+        }
+    }
+    else{
+        cout<<mes<<" es un mes invalido"<<endl;
+    }
+}
 
 
 
