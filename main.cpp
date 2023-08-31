@@ -126,10 +126,10 @@ void MenuPrincipal(){
     cout<<"10. El enesimo numero primo"<<endl;
     cout<<"11. Minimo comun multiplo entre 1 y el ingresado"<<endl;
     cout<<"12. Maximo factor primo de un numero"<<endl;
-    cout<<"13. Suma de todos los primos menores que el número ingresado"<<endl;
-            cout<<"14. Numero palindromo mas grande"<<endl;
+    cout<<"13. Suma de todos los primos menores que el numero ingresado"<<endl;
+    cout<<"14. Numero palindromo mas grande"<<endl;
     cout<<"15. Suma de los numeros en la diagonal de una espiral"<<endl;
-            cout<<"16. Serie de Collatz"<<endl;
+    cout<<"16. Serie de Collatz"<<endl;
     cout<<"17. Numero triangular"<<endl;
     cout<<"0.Para salir"<<endl;
 }
@@ -262,14 +262,27 @@ void SumaHoras(int horaInicio,int horaMas){
     minutosFin = minutos1 + minutos2;
 
     if (minutosFin >=59){
-        minutosFin = minutosFin -60;
+        minutosFin = minutosFin - 60;
         horaFin = horaFin +1;
     }
 
     if (horaFin > 24)
         cout<<horaFin<<":"<<minutosFin<<" Es un tiempo invalido"<<endl;
-    else
-        cout<<"La hora es: "<<horaFin<<":"<<minutosFin<<endl;
+    else{
+        if(horaFin < 10 && minutosFin < 10){
+            cout<<"La hora es: 0"<<horaFin<<"0"<<minutosFin<<endl;
+        }
+        else if(horaFin < 10 && minutosFin > 10){
+            cout<<"La hora es: 0"<<horaFin<<minutosFin<<endl;
+        }
+        else if(horaFin > 10 && minutosFin < 10){
+            cout<<"La hora es: "<<horaFin<<"0"<<minutosFin<<endl;
+        }
+        else{
+            cout<<"La hora es: "<<horaFin<<minutosFin<<endl;
+        }
+    }
+
 
 }
 
