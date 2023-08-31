@@ -5,8 +5,8 @@ using namespace std;
 void MenuPrincipal();
 bool EsVocal(char letra);
 void BilletesMonedas(int devuelta);
-void SumaHoras(int horaInicio,int horaMas);
 void MesDia(int mes, int dia);
+void SumaHoras(int horaInicio,int horaMas);
 
 int main()
 {
@@ -147,68 +147,103 @@ bool EsVocal(char letra){
 }
 
 void BilletesMonedas(int devuelta){
-    int billete50000;
-    int billete20000;
-    int billete10000;
-    int billete5000;
-    int billete2000;
-    int billete1000;
-    int moneda500;
-    int moneda200;
-    int moneda100;
-    int moneda50;
+    int billete50000=0;
+    int billete20000=0;
+    int billete10000=0;
+    int billete5000=0;
+    int billete2000=0;
+    int billete1000=0;
+    int moneda500=0;
+    int moneda200=0;
+    int moneda100=0;
+    int moneda50=0;
 
     if(devuelta >= 50000){
         billete50000 = devuelta / 50000;
         devuelta = devuelta - (billete50000 * 50000);
-        cout<<"50000: "<<billete50000<<endl;
     }
     if(devuelta >= 20000){
         billete20000 = devuelta / 20000;
         devuelta = devuelta - (billete20000 * 20000);
-        cout<<"20000: "<<billete20000<<endl;
     }
     if(devuelta >= 10000){
         billete10000 = devuelta / 10000;
         devuelta = devuelta - (billete10000 * 10000);
-        cout<<"10000: "<<billete10000<<endl;
     }
     if(devuelta >= 5000){
         billete5000 = devuelta / 5000;
         devuelta = devuelta - (billete5000 * 5000);
-        cout<<"5000: "<<billete5000<<endl;
     }
     if(devuelta >= 2000){
         billete2000 = devuelta / 2000;
         devuelta = devuelta - (billete2000 * 2000);
-        cout<<"2000: "<<billete2000<<endl;
     }
     if(devuelta >= 1000){
         billete1000 = devuelta / 1000;
         devuelta = devuelta - (billete1000 * 1000);
-        cout<<"1000: "<<billete1000<<endl;
     }
     if(devuelta >= 500){
         moneda500 = devuelta / 500;
         devuelta = devuelta - (moneda500 * 500);
-        cout<<"500: "<<moneda500<<endl;
     }
     if(devuelta >= 200){
         moneda200 = devuelta / 200;
         devuelta = devuelta - (moneda200 * 200);
-        cout<<"200: "<<moneda200<<endl;
     }
     if(devuelta >= 100){
         moneda100 = devuelta / 100;
         devuelta = devuelta - (moneda100 * 100);
-        cout<<"100: "<<moneda100<<endl;
     }
     if(devuelta >= 50){
         moneda50 = devuelta / 50;
         devuelta = devuelta - (moneda50 * 50);
-        cout<<"50: "<<moneda50<<endl;
     }
+
+    cout<<"50000: "<<billete50000<<endl;
+    cout<<"20000: "<<billete20000<<endl;
+    cout<<"10000: "<<billete10000<<endl;
+    cout<<"5000: "<<billete5000<<endl;
+    cout<<"2000: "<<billete2000<<endl;
+    cout<<"1000: "<<billete1000<<endl;
+    cout<<"500: "<<moneda500<<endl;
+    cout<<"200: "<<moneda200<<endl;
+    cout<<"100: "<<moneda100<<endl;
+    cout<<"50: "<<moneda50<<endl;
     cout<<"Faltante: "<<devuelta<<endl;
+}
+
+void MesDia(int mes, int dia){
+
+    if(mes==1 || mes==3 || mes==5 || mes==7 || mes==8 || mes==10 || mes==12){
+        if(dia>=1 && dia<=31){
+            cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+        }
+        else{
+            cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+        }
+    }
+    else if(mes==4 || mes==6 || mes==9 || mes==11){
+        if(dia>=1 && dia<=30){
+            cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+        }
+        else{
+            cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+        }
+    }
+    else if(mes==2){
+        if(dia>=1 && dia<=28){
+            cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
+        }
+        else if(dia==29){
+            cout<<dia<<"/"<<mes<<" es valida en bisiesto"<<endl;
+        }
+        else{
+            cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
+        }
+    }
+    else{
+        cout<<mes<<" es un mes invalido"<<endl;
+    }
 }
 
 void SumaHoras(int horaInicio,int horaMas){
@@ -226,7 +261,7 @@ void SumaHoras(int horaInicio,int horaMas){
     horaFin= hora1 + hora2;
     minutosFin = minutos1 + minutos2;
 
-    if (minutosFin >=60){
+    if (minutosFin >=59){
         minutosFin = minutosFin -60;
         horaFin = horaFin +1;
     }
@@ -236,43 +271,6 @@ void SumaHoras(int horaInicio,int horaMas){
     else
         cout<<"La hora es: "<<horaFin<<":"<<minutosFin<<endl;
 
-}
-
-
-void MesDia(int mes, int dia){
-    //string meses31[]={"1","3","5","7","8", "10", "12"};
-    //string meses30[]={"4","6","9","11"};
-
-    if(mes==1 || mes==3 || mes==5 || mes==7 || mes==8 || mes==10 || mes==12){
-        if(dia>=1 && dia<=31){
-           cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
-        }
-        else{
-           cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
-        }
-    }
-    else if(mes==4 || mes==6 || mes==9 || mes==11){
-        if(dia>=1 && dia<=30){
-           cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
-        }
-        else{
-           cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
-        }
-    }
-    else if(mes==2){
-        if(dia>=1 && dia<=28){
-            cout<<dia<<"/"<<mes<<" es una fecha valida"<<endl;
-        }
-        else if(dia==29){
-            cout<<dia<<"/"<<mes<<" es valida en bisiesto"<<endl;
-        }
-        else{
-            cout<<dia<<"/"<<mes<<" es una fecha invalida"<<endl;
-        }
-    }
-    else{
-        cout<<mes<<" es un mes invalido"<<endl;
-    }
 }
 
 
