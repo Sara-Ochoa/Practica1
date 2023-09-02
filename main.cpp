@@ -7,6 +7,8 @@ bool EsVocal(char letra);
 void BilletesMonedas(int devuelta);
 void MesDia(int mes, int dia);
 void SumaHoras(int horaInicio,int horaMas);
+int Potencia(int base, int exp);
+int Factorial(int num);
 
 int main()
 {
@@ -64,7 +66,13 @@ int main()
             cout<<"Ejecutando problema 5 ..."<<endl;;
             break;
         case 6:
+            int num;
+            float e;
             cout<<"Ejecutando problema 6 ..."<<endl;;
+            cout<<"Ingrese el numero de aproximacion para calcular e: "<<endl;
+            cin>>num;
+            e = 2 + (float)1/Factorial(num);
+            cout<<"El valor aproximado de euler es: "<<e<<endl;
             break;
         case 7:
             cout<<"Ejecutando problema 7 ..."<<endl;;
@@ -286,8 +294,21 @@ void SumaHoras(int horaInicio,int horaMas){
 
 }
 
+int Potencia(int base, int exp){
+    int x=1;
+    for(int i=0; i<exp; i++){
+        x *= base;
+    }
+    return x;
+}
 
-
+int Factorial(int num){
+    long factorial=1;
+    for(int i=1; i<=num; i++){
+        factorial *= i;
+    }
+    return factorial;
+}
 
 
 
