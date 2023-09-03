@@ -9,6 +9,7 @@ void MesDia(int mes, int dia);
 void SumaHoras(int horaInicio,int horaMas);
 int Potencia(int base, int exp);
 int Factorial(int num);
+int EnesimoPrimo(int n);
 
 int main()
 {
@@ -55,7 +56,7 @@ int main()
         case 4:
             int horaInicio;
             int horaMas;
-            cout<<"Ejecutando problema 4 ..."<<endl;;
+            cout<<"Ejecutando problema 4 ..."<<endl;
             cout<<"Ingrese la primer hora: "<<endl;
             cin>>horaInicio;
             cout<<"Ingrese la hora a sumar: "<<endl;
@@ -63,49 +64,93 @@ int main()
             SumaHoras(horaInicio, horaMas);
             break;
         case 5:
-            cout<<"Ejecutando problema 5 ..."<<endl;;
+            int n;
+            cout<<"Ejecutando problema 5 ..."<<endl;
+            cout << "Ingrese un numero: ";
+            cin >>n;
+            /*
+            for (int i=0; i<n; i++) {
+                for (int j = 0; j < n-i-1; j++)
+                    cout << " ";
+                for (int j = 0; j < 2*i+1; j++)
+                    cout << "*" ;
+                cout << endl ;
+            }
+
+            for (int i=n-2; i>=0; i--) {
+                for (int j=0; j<n-i-1; j++){
+                    cout << " ";
+                }
+                for (int j=0; j<2*i+1; j++){
+                    cout << "*";
+                }
+                cout << endl ;
+            }
+            */
             break;
         case 6:
             int num;
             float e;
-            cout<<"Ejecutando problema 6 ..."<<endl;;
+            cout<<"Ejecutando problema 6 ..."<<endl;
             cout<<"Ingrese el numero de aproximacion para calcular e: "<<endl;
             cin>>num;
             e = 2 + (float)1/Factorial(num);
             cout<<"El valor aproximado de euler es: "<<e<<endl;
             break;
         case 7:
-            cout<<"Ejecutando problema 7 ..."<<endl;;
+            cout<<"Ejecutando problema 7 ..."<<endl;
             break;
         case 8:
-            cout<<"Ejecutando problema 8 ..."<<endl;;
+            cout<<"Ejecutando problema 8 ..."<<endl;
             break;
         case 9:
-            cout<<"Ejecutando problema 9 ..."<<endl;;
+            cout<<"Ejecutando problema 9 ..."<<endl;
             break;
         case 10:
-            cout<<"Ejecutando problema 10 ..."<<endl;;
+            cout<<"Ejecutando problema 10 ..."<<endl;
             break;
         case 11:
-            cout<<"Ejecutando problema 11 ..."<<endl;;
+            cout<<"Ejecutando problema 11 ..."<<endl;
             break;
         case 12:
-            cout<<"Ejecutando problema 12 ..."<<endl;;
+            cout<<"Ejecutando problema 12 ..."<<endl;
             break;
         case 13:
-            cout<<"Ejecutando problema 13 ..."<<endl;;
+            int Num;
+            int Suma;
+            cout<<"Ejecutando problema 13 ..."<<endl;
+            cout<<"Ingrese un numero entero positivo: ";
+            cin>>Num;
+            for(int i=2; i<Num;i++){
+
+                int aumento = 2;
+                bool esPrimo = true;
+
+                while(esPrimo && aumento<i){
+                    if(i % aumento == 0){
+                        esPrimo = false;
+                    }
+                    else{
+                        aumento++;
+                    }
+                }
+                if(esPrimo){
+                    Suma += i;
+                }
+            }
+            cout<<"El resultado de la suma es: "<<Suma<<endl;//No se libera la variable, sigue guardando los valores.
             break;
         case 14:
-            cout<<"Ejecutando problema 14 ..."<<endl;;
+            cout<<"Ejecutando problema 14 ..."<<endl;
             break;
         case 15:
-            cout<<"Ejecutando problema 15 ..."<<endl;;
+            cout<<"Ejecutando problema 15 ..."<<endl;
             break;
         case 16:
-            cout<<"Ejecutando problema 16 ..."<<endl;;
+            cout<<"Ejecutando problema 16 ..."<<endl;
             break;
         case 17:
-            cout<<"Ejecutando problema 17 ..."<<endl;;
+            cout<<"Ejecutando problema 17 ..."<<endl;
             break;
         default:
             if(opcion!=0)
