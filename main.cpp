@@ -9,7 +9,8 @@ void MesDia(int mes, int dia);
 void SumaHoras(int horaInicio,int horaMas);
 int Potencia(int base, int exp);
 int Factorial(int num);
-int EnesimoPrimo(int n);
+int EsPrimo(int numero);
+int SumaFibonacci(int numero);
 
 int main()
 {
@@ -98,7 +99,11 @@ int main()
             cout<<"El valor aproximado de euler es: "<<e<<endl;
             break;
         case 7:
+            int N;
             cout<<"Ejecutando problema 7 ..."<<endl;
+            cout<<"Ingrese el numero: "<<endl;
+            cin>>N;
+            SumaFibonacci(N);
             break;
         case 8:
             cout<<"Ejecutando problema 8 ..."<<endl;
@@ -107,7 +112,11 @@ int main()
             cout<<"Ejecutando problema 9 ..."<<endl;
             break;
         case 10:
+            int numero;
             cout<<"Ejecutando problema 10 ..."<<endl;
+            cout<<"Ingrese el enesimo numero primo: "<<endl;
+            cin>>numero;
+            EsPrimo(numero);
             break;
         case 11:
             cout<<"Ejecutando problema 11 ..."<<endl;
@@ -300,12 +309,12 @@ void MesDia(int mes, int dia){
 }
 
 void SumaHoras(int horaInicio,int horaMas){
-    int hora1;
-    int minutos1;
-    int minutos2;
-    int hora2;
-    int horaFin;
-    int minutosFin;
+    int hora1=0;
+    int minutos1=0;
+    int minutos2=0;
+    int hora2=0;
+    int horaFin=0;
+    int minutosFin=0;
 
     hora1 = horaInicio / 100;
     minutos1 = horaInicio - (100*hora1);
@@ -355,10 +364,41 @@ int Factorial(int num){
     return factorial;
 }
 
+int EsPrimo(int numero){
+    //int numero=1;
+    int cont=0;
+    for(int i=1; i<=numero; i++){
+        if(numero%i==0){
+            cont++;
+        }
+    }
+    if(cont>2){
+        cout<<"No es primo"<<endl;
+    }
+    else{
+        cout<<"Si es primo"<<endl;
+    }
+    return 0;
+}
 
+int SumaFibonacci(int numero){
+    int suma=0;
+    int x=0;
+    int y=1;
+    int z=0;
 
+    for(int i=1; i<numero; i++){
+        z=x+y;
+        x=y;
+        y=z;
 
-
+        if(z%2==0 && z<=numero){
+            suma +=z;
+        }
+    }
+    cout<<"El resultado de la suma es: "<<suma<<endl;
+    return 0;
+}
 
 
 
