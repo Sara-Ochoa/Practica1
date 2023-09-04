@@ -9,7 +9,7 @@ void MesDia(int mes, int dia);
 void SumaHoras(int horaInicio,int horaMas);
 int Potencia(int base, int exp);
 int Factorial(int num);
-int EsPrimo(int numero);
+bool EsPrimo(int numero);
 int SumaFibonacci(int numero);
 
 int main()
@@ -69,25 +69,21 @@ int main()
             cout<<"Ejecutando problema 5 ..."<<endl;
             cout << "Ingrese un numero: ";
             cin >>n;
-            /*
-            for (int i=0; i<n; i++) {
-                for (int j = 0; j < n-i-1; j++)
+
+            for(int i=0; i<n/2+1; i++) {
+                for (int j = 0; j < n/2-i; j++)
                     cout << " ";
                 for (int j = 0; j < 2*i+1; j++)
                     cout << "*" ;
                 cout << endl ;
             }
-
-            for (int i=n-2; i>=0; i--) {
-                for (int j=0; j<n-i-1; j++){
+            for(int i=n/2-1; i>=0; i--){
+                for (int j = 0; j < n/2-i; j++)
                     cout << " ";
-                }
-                for (int j=0; j<2*i+1; j++){
-                    cout << "*";
-                }
+                for (int j = 0; j < 2*i+1; j++)
+                    cout << "*" ;
                 cout << endl ;
             }
-            */
             break;
         case 6:
             int num;
@@ -129,24 +125,26 @@ int main()
                 resultado = Potencia(digito,digito);
                 suma += resultado;
             }
-            cout<<"El resultado de la suma es: "<<suma<<endl;
-/*
-            for(int j=0; j>i; j++){
-                digito = digitos[j];
-                resultado = Potencia(digito,digito);
-                cout<<resultado<<endl;
-                suma += resultado;
-                cout<<suma<<endl;
-            }*/
-            //cout<<"El resultado de la suma es: "<<suma<<endl;
-
+            cout<<"El resultado de la suma es: "<<suma<<endl;//La primera vez imprime bien, después aparece con un error.
             break;
         case 10:
             int numero;
+            int cont;
+            bool prueba;
             cout<<"Ejecutando problema 10 ..."<<endl;
             cout<<"Ingrese el enesimo numero primo: "<<endl;
             cin>>numero;
-            EsPrimo(numero);
+
+            for(int i=1; i<=numero; i++){//NO entra al for
+                prueba = EsPrimo(i);
+                if(prueba == true){
+                    cont+=1;
+                    if(cont==numero){
+                        cout<<"El primo numero "<<numero<<" es: "<<endl;//NO se como poner el numero
+                    }
+                }
+            }
+
             break;
         case 11:
             cout<<"Ejecutando problema 11 ..."<<endl;
@@ -394,21 +392,22 @@ int Factorial(int num){
     return factorial;
 }
 
-int EsPrimo(int numero){
-    //int numero=1;
+bool EsPrimo(int numero){
     int cont=0;
     for(int i=1; i<=numero; i++){
         if(numero%i==0){
             cont++;
         }
     }
-    if(cont>2){
-        cout<<"No es primo"<<endl;
+    if(numero==1){
+        return false;
+    }
+    else if(cont>2){
+        return false;
     }
     else{
-        cout<<"Si es primo"<<endl;
+        return true;
     }
-    return 0;
 }
 
 int SumaFibonacci(int numero){
@@ -429,9 +428,6 @@ int SumaFibonacci(int numero){
     cout<<"El resultado de la suma es: "<<suma<<endl;
     return 0;
 }
-
-
-
 
 
 
