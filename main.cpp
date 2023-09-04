@@ -96,7 +96,7 @@ int main()
             cout<<"Ingrese el numero de aproximacion para calcular e: "<<endl;
             cin>>num;
             e = 2 + (float)1/Factorial(num);
-            cout<<"El valor aproximado de euler es: "<<e<<endl;
+            cout<<"e es aproximadamente: "<<e<<endl;
             break;
         case 7:
             int N;
@@ -109,7 +109,37 @@ int main()
             cout<<"Ejecutando problema 8 ..."<<endl;
             break;
         case 9:
+            int number;
+            int suma;
+            int digito;
+            int resultado;
+            int digitos[10];
+            int i;
             cout<<"Ejecutando problema 9 ..."<<endl;
+            cout<<"Ingrese el numero entero: "<<endl;
+            cin>>number;
+
+            while(number>0){
+                digitos[i] = number%10;
+                number = number/10;
+                i++;
+            }
+            for(int j=i-1; j>=0; j--){
+                digito= digitos[j];
+                resultado = Potencia(digito,digito);
+                suma += resultado;
+            }
+            cout<<"El resultado de la suma es: "<<suma<<endl;
+/*
+            for(int j=0; j>i; j++){
+                digito = digitos[j];
+                resultado = Potencia(digito,digito);
+                cout<<resultado<<endl;
+                suma += resultado;
+                cout<<suma<<endl;
+            }*/
+            //cout<<"El resultado de la suma es: "<<suma<<endl;
+
             break;
         case 10:
             int numero;
