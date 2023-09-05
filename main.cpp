@@ -10,7 +10,9 @@ void SumaHoras(int horaInicio,int horaMas);
 int Potencia(int base, int exp);
 int Factorial(int num);
 bool EsPrimo(int numero);
-int SumaFibonacci(int numero);
+void SumaFibonacci(int numero);
+int Multiplo(int a, int c);
+bool esPalindromo(int numero);
 
 int main()
 {
@@ -102,7 +104,21 @@ int main()
             SumaFibonacci(N);
             break;
         case 8:
+            int a;
+            int b;
+            int c;
+            int total1;
+            int total2;
             cout<<"Ejecutando problema 8 ..."<<endl;
+            cout<<"Ingrese el primer numero: "<<endl;
+            cin>>a;
+            cout<<"Ingrese el segundo numero: "<<endl;
+            cin>>b;
+            cout<<"Ingrese el  tercer numero: "<<endl;
+            cin>>c;
+            total1=Multiplo(a,c);
+            total2=Multiplo(b,c);
+            cout<<"="<<total1+total2<<endl;
             break;
         case 9:
             int number;
@@ -159,7 +175,6 @@ int main()
             cout<<"Ingrese un numero entero positivo: ";
             cin>>Num;
             for(int i=2; i<Num;i++){
-
                 int aumento = 2;
                 bool esPrimo = true;
 
@@ -178,7 +193,20 @@ int main()
             cout<<"El resultado de la suma es: "<<Suma<<endl;//No se libera la variable, sigue guardando los valores.
             break;
         case 14:
+            int palmax, m1, m2;
             cout<<"Ejecutando problema 14 ..."<<endl;
+            for (int i = 999; i >= 100; i--)
+            {
+                for (int j = 999; j >= 100; j--)
+                {
+                    int temp;
+                    temp = i * j;
+                    if(esPalindromo(temp) && (temp > palmax)){
+                        palmax = temp, m1 = i, m2 = j;
+                    }
+                }
+            }
+            cout << m1 <<"*"<<m2<<"="<<palmax<<endl;
             break;
         case 15:
             cout<<"Ejecutando problema 15 ..."<<endl;
@@ -360,16 +388,16 @@ void SumaHoras(int horaInicio,int horaMas){
         cout<<horaFin<<":"<<minutosFin<<" Es un tiempo invalido"<<endl;
     else{
         if(horaFin < 10 && minutosFin < 10){
-            cout<<"La hora es: 0"<<horaFin<<"0"<<minutosFin<<endl;
+            cout<<"La hora es 0"<<horaFin<<"0"<<minutosFin<<endl;
         }
         else if(horaFin < 10 && minutosFin > 10){
-            cout<<"La hora es: 0"<<horaFin<<minutosFin<<endl;
+            cout<<"La hora es 0"<<horaFin<<minutosFin<<endl;
         }
         else if(horaFin > 10 && minutosFin < 10){
-            cout<<"La hora es: "<<horaFin<<"0"<<minutosFin<<endl;
+            cout<<"La hora es "<<horaFin<<"0"<<minutosFin<<endl;
         }
         else{
-            cout<<"La hora es: "<<horaFin<<minutosFin<<endl;
+            cout<<"La hora es "<<horaFin<<minutosFin<<endl;
         }
     }
 
@@ -386,7 +414,7 @@ int Potencia(int base, int exp){
 
 int Factorial(int num){
     long factorial=1;
-    for(int i=1; i<=num; i++){
+    for(int i=2; i<num; i++){
         factorial *= i;
     }
     return factorial;
@@ -410,7 +438,7 @@ bool EsPrimo(int numero){
     }
 }
 
-int SumaFibonacci(int numero){
+void SumaFibonacci(int numero){
     int suma=0;
     int x=0;
     int y=1;
@@ -426,9 +454,34 @@ int SumaFibonacci(int numero){
         }
     }
     cout<<"El resultado de la suma es: "<<suma<<endl;
-    return 0;
 }
 
+int Multiplo(int a, int c){
+
+    int multiplos=0;
+    int total=0;
 
 
+    for(int i=1; i<20; i++){
+        multiplos = a*i;
+        if(multiplos < c){
+            cout<<multiplos<<"+";
+            total += multiplos;
+        }
+    }
 
+    return total;
+}
+
+bool esPalindromo(int numero) {
+    int numeroOriginal = numero;
+    int reverso = 0;
+
+    while (numero > 0) {
+        int digito = numero % 10;
+        reverso = reverso * 10 + digito;
+        numero /= 10;
+    }
+
+    return (numeroOriginal == reverso);
+}
