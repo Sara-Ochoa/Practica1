@@ -67,7 +67,8 @@ int main()
             SumaHoras(horaInicio, horaMas);
             break;
         case 5:
-            int n;
+        {
+            int n=0;
             cout<<"Ejecutando problema 5 ..."<<endl;
             cout << "Ingrese un numero: ";
             cin >>n;
@@ -87,8 +88,10 @@ int main()
                 cout << endl ;
             }
             break;
+        }
         case 6:
-            int num;
+        {
+            int num=0;
             float e;
             cout<<"Ejecutando problema 6 ..."<<endl;
             cout<<"Ingrese el numero de aproximacion para calcular e: "<<endl;
@@ -96,19 +99,23 @@ int main()
             e = 2 + (float)1/Factorial(num);
             cout<<"e es aproximadamente: "<<e<<endl;
             break;
+        }
         case 7:
-            int N;
+        {
+            int num=0;
             cout<<"Ejecutando problema 7 ..."<<endl;
             cout<<"Ingrese el numero: "<<endl;
-            cin>>N;
-            SumaFibonacci(N);
+            cin>>num;
+            SumaFibonacci(num);
             break;
+        }
         case 8:
-            int a;
-            int b;
-            int c;
-            int total1;
-            int total2;
+        {
+            int a=0;
+            int b=0;
+            int c=0;
+            int total1=0;
+            int total2=0;
             cout<<"Ejecutando problema 8 ..."<<endl;
             cout<<"Ingrese el primer numero: "<<endl;
             cin>>a;
@@ -120,20 +127,22 @@ int main()
             total2=Multiplo(b,c);
             cout<<"="<<total1+total2<<endl;
             break;
+        }
         case 9:
-            int number;
-            int suma;
-            int digito;
-            int resultado;
+        {
+            int num=0;
+            int suma=0;
+            int digito=0;
+            int resultado=0;
             int digitos[10];
-            int i;
+            int i=0;
             cout<<"Ejecutando problema 9 ..."<<endl;
             cout<<"Ingrese el numero entero: "<<endl;
-            cin>>number;
+            cin>>num;
 
-            while(number>0){
-                digitos[i] = number%10;
-                number = number/10;
+            while(num>0){
+                digitos[i] = num%10;
+                num = num/10;
                 i++;
             }
             for(int j=i-1; j>=0; j--){
@@ -141,8 +150,9 @@ int main()
                 resultado = Potencia(digito,digito);
                 suma += resultado;
             }
-            cout<<"El resultado de la suma es: "<<suma<<endl;//La primera vez imprime bien, después aparece con un error.
+            cout<<"El resultado de la suma es: "<<suma<<endl;
             break;
+        }
         case 10:
             int numero;
             int cont;
@@ -153,21 +163,37 @@ int main()
 
             for(int i=1; i<=numero; i++){//NO entra al for
                 prueba = EsPrimo(i);
-                if(prueba == true){
+                if(prueba){
                     cont+=1;
                     if(cont==numero){
                         cout<<"El primo numero "<<numero<<" es: "<<endl;//NO se como poner el numero
                     }
                 }
             }
-
             break;
         case 11:
             cout<<"Ejecutando problema 11 ..."<<endl;
             break;
         case 12:
+        {
+            int nro=0;
+            int MFP=0;
+            int k=0;
+            bool pon;
             cout<<"Ejecutando problema 12 ..."<<endl;
+            cout<<"Ingrese el numero: "<<endl;
+            cin>>nro;
+
+            while(nro>=k){
+                pon = EsPrimo(k);
+                if(pon && nro % k == 0){
+                    MFP = k;
+                }
+                k += 1;
+            }
+            cout << "El mayor factor primo de " << nro << " es: " << MFP << endl;
             break;
+        }
         case 13:
             int Num;
             int Suma;
