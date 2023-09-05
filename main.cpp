@@ -13,6 +13,7 @@ bool EsPrimo(int numero);
 void SumaFibonacci(int numero);
 int Multiplo(int a, int c);
 bool esPalindromo(int numero);
+int Elemento(int n);
 
 int main()
 {
@@ -178,7 +179,7 @@ int main()
         {
             int nro=0;
             int MFP=0;
-            int k=0;
+            int k;
             bool pon;
             cout<<"Ejecutando problema 12 ..."<<endl;
             cout<<"Ingrese el numero: "<<endl;
@@ -195,8 +196,9 @@ int main()
             break;
         }
         case 13:
-            int Num;
-            int Suma;
+        {
+            int Num=0;
+            int Suma=0;
             cout<<"Ejecutando problema 13 ..."<<endl;
             cout<<"Ingrese un numero entero positivo: ";
             cin>>Num;
@@ -216,16 +218,18 @@ int main()
                     Suma += i;
                 }
             }
-            cout<<"El resultado de la suma es: "<<Suma<<endl;//No se libera la variable, sigue guardando los valores.
+            cout<<"El resultado de la suma es: "<<Suma<<endl;
             break;
+        }
         case 14:
-            int palindromo, p1, p2;
+        {
+            int palindromo, p1, p2=0;
             cout<<"Ejecutando problema 14 ..."<<endl;
             for (int i = 999; i >= 100; i--)
             {
                 for (int j = 999; j >= 100; j--)
                 {
-                    int temp;
+                    int temp=0;
                     temp = i * j;
                     if(esPalindromo(temp) && (temp > palindromo)){
                         palindromo = temp;
@@ -236,12 +240,52 @@ int main()
             }
             cout<<p1<<"*"<<p2<<"="<<palindromo<<endl;
             break;
+        }
         case 15:
+        {
+            int n=0;
+            int paso = 2;
+            int numero = 1;
+            int suma_diagonal = 1;
             cout<<"Ejecutando problema 15 ..."<<endl;
+            cout << "Ingrese el numero: ";
+            cin >> n;
+
+            while (numero < n * n)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    numero += paso;
+                    suma_diagonal += numero;
+                }
+                paso += 2;
+            }
+
+            cout<<"En una espiral de "<<n<<"x"<<n<<", la suma es: "<<suma_diagonal<<"."<<endl;
             break;
+        }
         case 16:
+        {
+            int i = 2;
+            int m=0;
+            int n=0;
+            int j=0;
+            int largot=0;
             cout<<"Ejecutando problema 16 ..."<<endl;
+            cout << "Ingrese el valor maximo de la semilla: " << endl;
+            cin >> n;
+
+            while(i < n){
+                largot = Elemento(i);
+                if(largot > m){
+                    m = largot;
+                    j = i;
+                }
+                i += 1;
+            }
+            cout << "La serie mas larga es con la semilla: " << j << ", teniendo " << m << " terminos" << endl;
             break;
+        }
         case 17:
             cout<<"Ejecutando problema 17 ..."<<endl;
             break;
@@ -249,9 +293,10 @@ int main()
             if(opcion!=0)
                 cout<<"La opcion no valida"<<endl;
             break;
+
         }
-    }
     return 0;
+    }
 }
 
 void MenuPrincipal(){
@@ -512,4 +557,23 @@ bool esPalindromo(int numero) {
     }
 
     return (numeroOriginal == reverso);
+}
+
+int Elemento(int n){
+    int largo = 0;
+    while(n!=1)
+    {
+        if(n%2==0)
+        {
+            n/=2;
+        }
+        else
+        {
+            n=3*n+1;
+        }
+
+        largo = largo+1;
+    }
+
+    return largo;
 }
