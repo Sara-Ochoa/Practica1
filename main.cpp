@@ -193,7 +193,7 @@ int main()
             cout<<"El resultado de la suma es: "<<Suma<<endl;//No se libera la variable, sigue guardando los valores.
             break;
         case 14:
-            int palmax, m1, m2;
+            int palindromo, p1, p2;
             cout<<"Ejecutando problema 14 ..."<<endl;
             for (int i = 999; i >= 100; i--)
             {
@@ -201,12 +201,14 @@ int main()
                 {
                     int temp;
                     temp = i * j;
-                    if(esPalindromo(temp) && (temp > palmax)){
-                        palmax = temp, m1 = i, m2 = j;
+                    if(esPalindromo(temp) && (temp > palindromo)){
+                        palindromo = temp;
+                        p1 = i;
+                        p2 = j;
                     }
                 }
             }
-            cout << m1 <<"*"<<m2<<"="<<palmax<<endl;
+            cout<<p1<<"*"<<p2<<"="<<palindromo<<endl;
             break;
         case 15:
             cout<<"Ejecutando problema 15 ..."<<endl;
