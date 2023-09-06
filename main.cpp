@@ -12,11 +12,11 @@ int Factorial(int num);
 bool EsPrimo(int numero);
 void SumaFibonacci(int numero);
 int Multiplo(int a, int c);
-bool esPalindromo(int numero);
+bool Palindromo(int numero);
 int Elemento(int n);
-int contarDivisores(int numero);
-int MiCoMu(int a, int b);
-int MaCoDi(int a, int b);
+int Divisores(int numero);
+int MCM(int a, int b);
+int MCD(int a, int b);
 
 int main()
 {
@@ -158,34 +158,34 @@ int main()
             break;
         }
         case 10:
-            int numero;
-            int cont;
-            bool prueba;
+        {
+            int numeroPrimo=0;
+            int N=0;
             cout<<"Ejecutando problema 10 ..."<<endl;
             cout<<"Ingrese el enesimo numero primo: "<<endl;
-            cin>>numero;
-
-            for(int i=1; i<=numero; i++){//NO entra al for
-                prueba = EsPrimo(i);
-                if(prueba){
-                    cont+=1;
-                    if(cont==numero){
-                        cout<<"El primo numero "<<numero<<" es: "<<endl;//NO se como poner el numero
+            cin>>N;
+            for (int i=2;i>0;i++){
+                if (EsPrimo(i)==1){
+                    numeroPrimo++;
+                    if (numeroPrimo==N){
+                        cout <<"El primo numero "<< N <<" es: "<< i << endl;
+                        return 0;
                     }
                 }
             }
             break;
+        }
         case 11:
         {
             int n=0;
             int mcm=1;
             cout<<"Ejecutando problema 11 ..."<<endl;
-            cout<<"Digite un numero entero: "<<endl;
+            cout<<"Ingrese el numero: "<<endl;
             cin>>n;
 
-            for (int k=2; k<=n; k++)
+            for (int i=2; i<=n; i++)
             {
-                mcm=MiCoMu(mcm,k);
+                mcm=MCM(mcm,i);
             }
             cout<<"El minimo comun multiplo es: "<<mcm<<endl;
             return 0;
@@ -193,22 +193,22 @@ int main()
         }
         case 12:
         {
-            int nro=0;
+            int numero=0;
             int MFP=0;
             int k=2;
-            bool pon;
+            bool primo;
             cout<<"Ejecutando problema 12 ..."<<endl;
             cout<<"Ingrese el numero: "<<endl;
-            cin>>nro;
+            cin>>numero;
 
-            while(nro>=k){
-                pon = EsPrimo(k);
-                if(pon && nro % k == 0){
+            while(numero>=k){
+                primo = EsPrimo(k);
+                if(primo && numero % k == 0){
                     MFP = k;
                 }
                 k += 1;
             }
-            cout << "El mayor factor primo de " << nro << " es: " << MFP << endl;
+            cout << "El mayor factor primo de " << numero << " es: " << MFP << endl;
             break;
         }
         case 13:
@@ -247,7 +247,7 @@ int main()
                 {
                     int temp=0;
                     temp = i * j;
-                    if(esPalindromo(temp) && (temp > palindromo)){
+                    if(Palindromo(temp) && (temp > palindromo)){
                         palindromo = temp;
                         p1 = i;
                         p2 = j;
@@ -260,9 +260,9 @@ int main()
         case 15:
         {
             int n=0;
-            int paso = 2;
+            int aumento = 2;
             int numero = 1;
-            int suma_diagonal = 1;
+            int SumaDiagonal = 1;
             cout<<"Ejecutando problema 15 ..."<<endl;
             cout << "Ingrese el numero: ";
             cin >> n;
@@ -271,13 +271,13 @@ int main()
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    numero += paso;
-                    suma_diagonal += numero;
+                    numero += aumento;
+                    SumaDiagonal += numero;
                 }
-                paso += 2;
+                aumento += 2;
             }
 
-            cout<<"En una espiral de "<<n<<"x"<<n<<", la suma es: "<<suma_diagonal<<"."<<endl;
+            cout<<"En una espiral de "<<n<<"x"<<n<<", la suma es: "<<SumaDiagonal<<endl;
             break;
         }
         case 16:
@@ -286,15 +286,15 @@ int main()
             int m=0;
             int n=0;
             int j=0;
-            int largot=0;
+            int larga=0;
             cout<<"Ejecutando problema 16 ..."<<endl;
             cout << "Ingrese el valor maximo de la semilla: " << endl;
             cin >> n;
 
             while(i < n){
-                largot = Elemento(i);
-                if(largot > m){
-                    m = largot;
+                larga = Elemento(i);
+                if(larga > m){
+                    m = larga;
                     j = i;
                 }
                 i += 1;
@@ -312,11 +312,11 @@ int main()
             for (int i = 1; ; i++)
             {
                 n = i *(i + 1) / 2;
-                int cantidadDivisores = contarDivisores(n);
+                int CantDivisores = Divisores(n);
 
-                if (cantidadDivisores > numero)
+                if (CantDivisores > numero)
                 {
-                    cout << "El numero es: " << n << " que tiene " << cantidadDivisores << " divisores." << endl;
+                    cout << "El numero es: " << n << " que tiene " << CantDivisores << " divisores." << endl;
                     break;
                 }
             }
@@ -328,8 +328,8 @@ int main()
             break;
 
         }
-    return 0;
     }
+    return 0;
 }
 
 void MenuPrincipal(){
@@ -518,6 +518,25 @@ int Potencia(int base, int exp){
     return x;
 }
 
+int MCM(int a, int b){
+    return (a*b)/MCD(a,b);
+}
+
+int MCD(int a, int b){
+    if(a<b){
+        int aux=a;
+        a=b;
+        b=aux;
+    }
+
+    while (b!=0){
+        int aux1=b;
+        b=a%b;
+        a=aux1;
+    }
+    return a;
+}
+
 int Factorial(int num){
     long factorial=1;
     for(int i=2; i<num; i++){
@@ -579,17 +598,17 @@ int Multiplo(int a, int c){
     return total;
 }
 
-bool esPalindromo(int numero) {
-    int numeroOriginal = numero;
-    int reverso = 0;
+bool Palindromo(int numero) {
+    int NumeroInicial = numero;
+    int inverso = 0;
 
     while (numero > 0) {
         int digito = numero % 10;
-        reverso = reverso * 10 + digito;
+        inverso = inverso * 10 + digito;
         numero /= 10;
     }
 
-    return (numeroOriginal == reverso);
+    return (NumeroInicial == inverso);
 }
 
 int Elemento(int n){
@@ -611,38 +630,18 @@ int Elemento(int n){
     return largo;
 }
 
-int contarDivisores(int numero){
-    int contador = 0;
+int Divisores(int numero)
+{
+    int cont = 0;
     for (int i = 1; i <= numero; i++)
     {
         if (numero % i == 0)
         {
-            contador++;
+            cont++;
         }
     }
 
-    return contador;
-}
-
-int MiCoMu(int a, int b){
-    return (a*b)/MaCoDi(a,b);
-}
-
-int MaCoDi(int a, int b){
-    if(a<b)
-    {
-        int aux=a;
-        a=b;
-        b=aux;
-    }
-
-    while (b!=0)
-    {
-        int aux1=b;
-        b=a%b;
-        a=aux1;
-    }
-    return a;
+    return cont;
 }
 
 
