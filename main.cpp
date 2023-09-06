@@ -14,6 +14,9 @@ void SumaFibonacci(int numero);
 int Multiplo(int a, int c);
 bool esPalindromo(int numero);
 int Elemento(int n);
+int contarDivisores(int numero);
+int MiCoMu(int a, int b);
+int MaCoDi(int a, int b);
 
 int main()
 {
@@ -173,13 +176,26 @@ int main()
             }
             break;
         case 11:
+        {
+            int n=0;
+            int mcm=1;
             cout<<"Ejecutando problema 11 ..."<<endl;
+            cout<<"Digite un numero entero: "<<endl;
+            cin>>n;
+
+            for (int k=2; k<=n; k++)
+            {
+                mcm=MiCoMu(mcm,k);
+            }
+            cout<<"El minimo comun multiplo es: "<<mcm<<endl;
+            return 0;
             break;
+        }
         case 12:
         {
             int nro=0;
             int MFP=0;
-            int k;
+            int k=2;
             bool pon;
             cout<<"Ejecutando problema 12 ..."<<endl;
             cout<<"Ingrese el numero: "<<endl;
@@ -287,8 +303,25 @@ int main()
             break;
         }
         case 17:
+        {
+            int numero, n = 0;
             cout<<"Ejecutando problema 17 ..."<<endl;
+            cout << "Ingrese el numero: ";
+            cin >> numero;
+
+            for (int i = 1; ; i++)
+            {
+                n = i *(i + 1) / 2;
+                int cantidadDivisores = contarDivisores(n);
+
+                if (cantidadDivisores > numero)
+                {
+                    cout << "El numero es: " << n << " que tiene " << cantidadDivisores << " divisores." << endl;
+                    break;
+                }
+            }
             break;
+        }
         default:
             if(opcion!=0)
                 cout<<"La opcion no valida"<<endl;
@@ -577,3 +610,39 @@ int Elemento(int n){
 
     return largo;
 }
+
+int contarDivisores(int numero){
+    int contador = 0;
+    for (int i = 1; i <= numero; i++)
+    {
+        if (numero % i == 0)
+        {
+            contador++;
+        }
+    }
+
+    return contador;
+}
+
+int MiCoMu(int a, int b){
+    return (a*b)/MaCoDi(a,b);
+}
+
+int MaCoDi(int a, int b){
+    if(a<b)
+    {
+        int aux=a;
+        a=b;
+        b=aux;
+    }
+
+    while (b!=0)
+    {
+        int aux1=b;
+        b=a%b;
+        a=aux1;
+    }
+    return a;
+}
+
+
