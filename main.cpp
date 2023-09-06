@@ -11,7 +11,6 @@ int Potencia(int base, int exp);
 int Factorial(int num);
 bool EsPrimo(int numero);
 void SumaFibonacci(int numero);
-int Multiplo(int a, int c);
 bool Palindromo(int numero);
 int Elemento(int n);
 int Divisores(int numero);
@@ -118,8 +117,8 @@ int main()
             int a=0;
             int b=0;
             int c=0;
-            int total1=0;
-            int total2=0;
+            int suma=0;
+            int d=0;
             cout<<"Ejecutando problema 8 ..."<<endl;
             cout<<"Ingrese el primer numero: "<<endl;
             cin>>a;
@@ -127,9 +126,29 @@ int main()
             cin>>b;
             cout<<"Ingrese el  tercer numero: "<<endl;
             cin>>c;
-            total1=Multiplo(a,c);
-            total2=Multiplo(b,c);
-            cout<<"="<<total1+total2<<endl;
+
+            for(int i = 1; i < c; i++){
+                if(i%a == 0){
+                    if(d == 0){
+                        cout << i;
+                        suma += i;
+                    }
+                    else{
+                        cout << "+" << i;
+                        suma += i;
+                    }
+                    d = 1;
+                }
+            }
+
+            for(int i = 1; i < c; i++){
+                if(i%b == 0 && i%a != 0){
+                    cout << "+" << i;
+                    suma += i;
+                }
+            }
+
+            cout <<"="<<suma<< endl;
             break;
         }
         case 9:
@@ -580,23 +599,6 @@ void SumaFibonacci(int numero){
         }
     }
     cout<<"El resultado de la suma es: "<<suma<<endl;
-}
-
-int Multiplo(int a, int c){
-
-    int multiplos=0;
-    int total=0;
-
-
-    for(int i=1; i<20; i++){
-        multiplos = a*i;
-        if(multiplos < c){
-            cout<<multiplos<<"+";
-            total += multiplos;
-        }
-    }
-
-    return total;
 }
 
 bool Palindromo(int numero) {
