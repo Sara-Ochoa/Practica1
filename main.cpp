@@ -169,7 +169,7 @@ int main()
                     numeroPrimo++;
                     if (numeroPrimo==N){
                         cout <<"El primo numero "<< N <<" es: "<< i << endl;
-                        return 0;
+                        break;
                     }
                 }
             }
@@ -188,7 +188,6 @@ int main()
                 mcm=MCM(mcm,i);
             }
             cout<<"El minimo comun multiplo es: "<<mcm<<endl;
-            return 0;
             break;
         }
         case 12:
@@ -239,7 +238,9 @@ int main()
         }
         case 14:
         {
-            int palindromo, p1, p2=0;
+            int palindromo=0;
+            int p1=0;
+            int p2=0;
             cout<<"Ejecutando problema 14 ..."<<endl;
             for (int i = 999; i >= 100; i--)
             {
